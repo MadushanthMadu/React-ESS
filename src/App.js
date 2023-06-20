@@ -4,8 +4,11 @@ import './App.css';
 import { ButtonWidget } from './Components/button-component/button.component.jsx';
 // import { WidgetAlign } from './Enums/alignment';
 
-class App extends Component {
+import { ThemeProvider } from '@mui/material/styles';
+import theme from './Themes/theme';
+import { Heading } from './Headings/heading';
 
+class App extends Component {
   Submit = () => {
     console.log('Submitted')
   };
@@ -13,11 +16,19 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <ButtonWidget
-          text="Login"
-          callback={this.Submit}
-        />
-      </div>
+        <ThemeProvider theme={theme}>
+          <Heading 
+            type='h2'
+            color='primary.main'
+            title='Heading'
+            description='sample description'
+          />
+          
+          <ButtonWidget
+            callback={this.Submit}
+          />
+        </ThemeProvider>
+      </div>      
     );
   }
 }
