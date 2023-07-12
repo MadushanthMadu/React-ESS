@@ -7,6 +7,7 @@ import { ButtonWidget } from './Components/button-component/button.component.jsx
 import { ThemeProvider } from '@mui/material/styles';
 import theme from './Themes/theme';
 import { Heading } from './Headings/heading';
+import {InputField} from './Components/inputfield-component/inputfield-component';
 
 class App extends Component {
   Submit = () => {
@@ -26,6 +27,10 @@ class App extends Component {
           
           <ButtonWidget
             callback={this.Submit}
+          />
+
+          <InputField 
+            Placeholder = "At least 8 characters"
           />
         </ThemeProvider>
       </div>      

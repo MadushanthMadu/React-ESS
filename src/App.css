@@ -1,0 +1,20 @@
+/* body {
+    background-color: wheat;
+} */
+
+.css-1o2n4nu-MuiInputBase-input-MuiFilledInput-input {
+    padding-top: 10px !important;
+}
+
+.css-166tgme-MuiInputBase-root-MuiFilledInput-root {
+    padding: 5px !important;
+    border-radius: 10px !important;
+}
+
+.css-166tgme-MuiInputBase-root-MuiFilledInput-root:before {
+    border: none !important;
+}
+
+.css-166tgme-MuiInputBase-root-MuiFilledInput-root:after {
+    border: none !important;
+}

@@ -14,21 +14,21 @@ export const ButtonWidget = ({
     disabled = false,
     alignment = WidgetAlign.center
 }) => (
-        <Grid container justifyContent={alignment}>
-            <Button
-                id='btn-1'
-                style={{
-                    width: width,
-                    backgroundColor: bgcolor,
-                    color: textcolor,
-                    margin: '8px',
-                    padding: '12px 18px 12x 18px'
-                    }}
-                variant={isShowOutLine ? 'outlined' : 'contained'}
-                disabled={disabled}
-                onClick={callback}
-            >
-                {text}
-            </Button>
-        </Grid>
+    <Grid container justifyContent={alignment}>
+        <Button
+            id='btn-1'
+            style={{
+                width: width,
+                backgroundColor: bgcolor,
+                color: textcolor,
+                margin: '8px',
+                padding: '12px 18px 12x 18px'
+            }}
+            variant={isShowOutLine ? 'outlined' : 'contained'}
+            disabled={disabled}
+            onClick={callback}
+        >
+            {text}
+        </Button>
+    </Grid>
 )
