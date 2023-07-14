@@ -1,20 +1,61 @@
-/* body {
-    background-color: wheat;
-} */
-
-.css-1o2n4nu-MuiInputBase-input-MuiFilledInput-input {
-    padding-top: 10px !important;
+.css-1jxdcj3-MuiSvgIcon-root {
+    width: 3vh !important;
+    height: 3vh !important;
 }
 
-.css-166tgme-MuiInputBase-root-MuiFilledInput-root {
+.css-qmvhj5>:not(style) {
+    margin: 0px !important;
+}
+
+.Fpsw {
+    cursor: pointer;
+    border: none;
+}
+
+.inputlabel {
+    font-weight: 600 !important;
+    font-size: 14px !important;
+    height: 24px !important;
+    padding-bottom: 8px !important;
+}
+
+.css-11uczar-MuiInputBase-input-MuiFilledInput-input {
+    padding-top: 10px !important;
+    font-size: 0.875rem !important;
+    font-weight: 400 !important;
+}
+
+.css-1gg2rm3-MuiInputAdornment-root.MuiInputAdornment-positionStart.css-1gg2rm3-MuiInputAdornment-root:not(.MuiInputAdornment-hiddenLabel) {
+    margin-top: 0px !important;
+}
+
+.css-rfudfd-MuiInputBase-root-MuiFilledInput-root {
     padding: 5px !important;
     border-radius: 10px !important;
+    height: 44px !important;
 }
 
-.css-166tgme-MuiInputBase-root-MuiFilledInput-root:before {
+.css-rfudfd-MuiInputBase-root-MuiFilledInput-root:before {
     border: none !important;
 }
 
-.css-166tgme-MuiInputBase-root-MuiFilledInput-root:after {
+.css-4cgoz6-MuiInputBase-input-MuiFilledInput-input {
+    padding-top: 10px !important;
+    font-size: 0.875rem !important;
+    font-weight: 400 !important;
+}
+
+.css-14aiqa-MuiInputBase-root-MuiFilledInput-root {
+    padding: 5px !important;
+    border-radius: 10px !important;
+    height: 44px !important;
+}
+
+.css-14aiqa-MuiInputBase-root-MuiFilledInput-root:before {
     border: none !important;
+}
+
+.Login {
+    margin-left: auto;
+    margin-right: auto;
 }

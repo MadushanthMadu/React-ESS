@@ -6,11 +6,11 @@ import theme from '../../Themes/theme.jsx';
 
 export const ButtonWidget = ({
     callback, 
-    width,
+    Width,
     text = "Button",
     isShowOutLine = false,
-    bgcolor = isShowOutLine ? theme.palette.secondary.main : theme.palette.primary.main,
-    textcolor = isShowOutLine ? theme.palette.primary.main : theme.palette.secondary.main,
+    bgcolor = isShowOutLine ? theme.vars.palette.secondary.main : theme.vars.palette.primary.main,
+    textcolor = isShowOutLine ? theme.vars.palette.primary.main : theme.vars.palette.secondary.main,
     disabled = false,
     alignment = WidgetAlign.center
 }) => (
@@ -18,10 +18,12 @@ export const ButtonWidget = ({
         <Button
             id='btn-1'
             style={{
-                width: width,
+                fontSize: theme.typography.p.fontSize,
+                fontWeight: theme.typography.p.fontWeight,
+                width: Width,
                 backgroundColor: bgcolor,
                 color: textcolor,
-                margin: '8px',
+                marginBottom: '8px',
                 padding: '12px 18px 12x 18px'
             }}
             variant={isShowOutLine ? 'outlined' : 'contained'}

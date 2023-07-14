@@ -1,20 +1,42 @@
 import TextField from '@mui/material/TextField';
-import AccountCircle from '@mui/icons-material/AccountCircle';
 import InputAdornment from '@mui/material/InputAdornment';
 import IconButton from '@mui/material/IconButton';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
-import React from 'react';
-
+import React, {useState} from 'react';
 import { WidgetAlign } from '../../Enums/enums';
 import { Grid } from '@mui/material';
+import theme from '../../Themes/theme.jsx';
+import { styled } from '@mui/system';
+import InputLabel from '@mui/material/InputLabel';
+import LockIcon from '@mui/icons-material/Lock';
 
-export const InputField = ({
+const StyledIconContainer = styled('div')(({ theme }) => ({
+    margin: '0px 10px 0px 3px',
+    padding: '5px',
+    borderRadius: '5px',
+    backgroundColor: 'white',
+    lineHeight: 0
+  }));
+  
+  const StyledIcon = ({ component: Component }) => {  
+    return (
+      <StyledIconContainer>
+        <Component style={{
+            color: theme.vars.palette.primary.main, 
+            height: '3vh',
+            width: '3vh'
+        }} />
+      </StyledIconContainer>
+    );
+  };
+
+export const PasswordField = ({
     Placeholder,
-    Width,
+    Width = '150px',
     alignment = WidgetAlign.center
 }) => {
-    const [showPassword, setShowPassword] = React.useState(false);
+    const [showPassword, setShowPassword] = useState(false);
   
     const handleClickShowPassword = () => setShowPassword((show) => !show);
   
@@ -23,24 +45,27 @@ export const InputField = ({
     };
 
     return(
-        <Grid container justifyContent={alignment}>
+        <Grid container justifyContent={alignment} style={{paddingTop:'24px', paddingBottom:'24px'}}>
+            <InputLabel htmlFor="input-with-icon-adornment" className='inputlabel'>
+                Password
+            </InputLabel>
+
             <TextField
                 type={showPassword ? 'text' : 'password'}
-                id="filled-adornment-password"
                 placeholder={Placeholder}
                 style={{
                     width: Width
                 }}
                 InputProps={{
                     endAdornment: (
-                        <InputAdornment>
+                        <InputAdornment position='end'>
                             <IconButton
                                 aria-label="toggle password visibility"
                                 onClick={handleClickShowPassword}
                                 onMouseDown={handleMouseDownPassword}
                                 edge="end"
                                 style={{
-                                    margin: '0px 0px 0px 0px'
+                                    margin: '0px 0px 0px 0px',
                                 }}
                             >
                                 {showPassword ? <VisibilityOff /> : <Visibility />}
@@ -49,15 +74,8 @@ export const InputField = ({
                     ),
 
                     startAdornment: (
-                        <InputAdornment>
-                            <AccountCircle
-                            position="start" 
-                            style={{
-                                margin: '0px 10px 0px 5px',
-                                padding: '5px',
-                                borderRadius: '5px',
-                                backgroundColor: 'white'
-                            }}/>
+                        <InputAdornment position='start'>
+                            <StyledIcon  component={LockIcon} />
                         </InputAdornment>
                     )
                 }}
