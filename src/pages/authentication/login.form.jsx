@@ -1,15 +1,14 @@
-import { WidgetAlign } from '../Enums/enums';
-import theme from '../Themes/theme';
-import { Heading } from '../Components/Headings/heading';
-import { PasswordField } from '../Components/inputfield-component/inputfield-password-component';
-import { InputField } from '../Components/inputfield-component/inputfield-common-component';
-import { ButtonWidget } from '../Components/button-component/button.component';
+import { WidgetAlign } from '../../enums/enums';
+import theme from '../../themes/theme';
+import { Heading } from '../../components/heading-component/heading.component';
+import { PasswordField } from '../../components/inputfield-component/inputfield.password.component';
+import { InputField } from '../../components/inputfield-component/inputfield.common.component';
+import { ButtonWidget } from '../../components/button-component/button.component';
 import { Experimental_CssVarsProvider as CssVarsProvider } from '@mui/material/styles';
 import { Typography } from '@mui/material';
-
 import EmailIcon from '@mui/icons-material/Email';
 import { useState } from 'react';
-import Validation from './validation';
+import Validation from '../../shared/validation';
 
 const forgetpassword = () => {
     console.log('Forget Password')
@@ -20,12 +19,15 @@ const forgetpassword = () => {
 // };
 
 export const LoginForm = () => {
-    const [values, setValues] = useState ({})
+    const [values, setValues] = useState ({
+        email:'',
+        required:''
+    })
 
     const [errors, setErrors] = useState({})
 
     function handleinput(event) {
-        const newObj = {...values, [event.target.name.toLowerCase()]: event.target.value}
+        const newObj = {...values, [event.target.name]: event.target.value}
         setValues(newObj);
     }
 
@@ -47,6 +49,7 @@ export const LoginForm = () => {
 
         {/* Email */}
         <InputField 
+            validationkey='email'
             label = 'Email'
             type = 'text'
             placeholder = 'you@example.com'
@@ -59,11 +62,11 @@ export const LoginForm = () => {
 
         {/* Password */}
         <PasswordField 
-            placeholder = 'At least 8 characters'
+            placeholder = 'Your password here'
             width = '100%'
             alignment = { WidgetAlign.left }
             onchange = { handleinput }
-            errortext = { errors.password }
+            errortext = { errors.required }
         />
 
         {/* Forget Password */}

@@ -1,9 +1,9 @@
 import React from 'react';
 import TextField from '@mui/material/TextField';
 import InputAdornment from '@mui/material/InputAdornment';
-import { WidgetAlign } from '../../Enums/enums';
+import { WidgetAlign } from '../../enums/enums';
 import { Grid } from '@mui/material';
-import theme from '../../Themes/theme.jsx';
+import theme from '../../themes/theme.jsx';
 import { styled } from '@mui/system';
 import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
@@ -29,6 +29,7 @@ const StyledIcon = ({ component : Component }) => {
 };
 
 export const InputField = ({
+    validationkey = "required",
     onchange,
     disabled = false,
     defvalue,
@@ -50,7 +51,7 @@ export const InputField = ({
             }}
         >
             <Grid container justifyContent={alignment}>
-                <InputLabel for={label} className='inputlabel'>
+                <InputLabel for={validationkey} className='inputlabel'>
                     {label}
                 </InputLabel>
 
@@ -74,7 +75,7 @@ export const InputField = ({
                     defaultValue = {defvalue}
                     variant = "filled"
                     className = "textfield"
-                    name={label}
+                    name={validationkey}
                     disabled = {disabled}
                     onChange={onchange}
                     error = {errortext !== undefined}

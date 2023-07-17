@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import Box from '@mui/material/Box';
 import Grid from '@mui/material/Unstable_Grid2';
-import Logo from '../assets/images/Techserw-Logo.png'
+import Logo from '../../assets/images/Techserw-Logo.png'
 
-import { LoginForm } from './login-form';
+import { LoginForm } from './login.form';
 
 class Login extends Component {
     render() {

@@ -4,9 +4,9 @@ import IconButton from '@mui/material/IconButton';
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 import React, {useState} from 'react';
-import { WidgetAlign } from '../../Enums/enums';
+import { WidgetAlign } from '../../enums/enums';
 import { Grid } from '@mui/material';
-import theme from '../../Themes/theme.jsx';
+import theme from '../../themes/theme.jsx';
 import { styled } from '@mui/system';
 import InputLabel from '@mui/material/InputLabel';
 import LockIcon from '@mui/icons-material/Lock';
@@ -34,6 +34,7 @@ const StyledIconContainer = styled('div')(({ theme }) => ({
 
 
 export const PasswordField = ({
+    validationkey = "required",
     errortext,
     onchange,
     placeholder,
@@ -50,14 +51,14 @@ export const PasswordField = ({
 
     return(
         <Grid container justifyContent={alignment} style={{paddingTop:'24px', paddingBottom:'24px'}}>
-            <InputLabel for="password" className='inputlabel'>
+            <InputLabel for={validationkey} className='inputlabel'>
                 Password
             </InputLabel>
 
             <TextField
-                type= {showPassword ? 'text' : 'password'}
-                placeholder={placeholder}
-                style={{
+                type = {showPassword ? 'text' : 'password'}
+                placeholder = { placeholder }
+                style = {{
                     width: width
                 }}
                 InputProps={{
@@ -86,11 +87,11 @@ export const PasswordField = ({
                         </InputAdornment>
                     )
                 }}
-                variant="filled"
-                name='password'
-                onChange={onchange}
-                error = {errortext !== undefined}
-                helperText = {errortext}
+                variant = "filled"
+                name = { validationkey }
+                onChange = {onchange}
+                error = { errortext !== undefined }
+                helperText = { errortext }
                 {...(errortext !== undefined ? {focused : true} : {})}
             />
         </Grid>

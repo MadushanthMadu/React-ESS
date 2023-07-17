@@ -1,8 +1,8 @@
 import { Grid } from '@mui/material';
 import Button from '@mui/material/Button';
-import { WidgetAlign } from '../../Enums/enums';
+import { WidgetAlign } from '../../enums/enums';
 
-import theme from '../../Themes/theme.jsx';
+import theme from '../../themes/theme.jsx';
 
 export const ButtonWidget = ({
     callback, 
