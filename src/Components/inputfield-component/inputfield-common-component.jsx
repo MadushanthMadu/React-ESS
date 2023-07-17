@@ -29,15 +29,15 @@ const StyledIcon = ({ component : Component }) => {
 };
 
 export const InputField = ({
-    Disabled = false,
-    Error = false,
-    DefValue,
-    ErrorText = Error ? 'Error' : '',
-    Type,
-    Label,
-    Placeholder,
-    Width = '150px',
-    Icon,
+    onchange,
+    disabled = false,
+    defvalue,
+    errortext,
+    type,
+    label,
+    placeholder,
+    width = '150px',
+    icon,
     alignment = WidgetAlign.center
 }) => {
 
@@ -50,34 +50,36 @@ export const InputField = ({
             }}
         >
             <Grid container justifyContent={alignment}>
-                <InputLabel htmlFor="input-with-icon-adornment" className='inputlabel'>
-                    {Label}
+                <InputLabel for={label} className='inputlabel'>
+                    {label}
                 </InputLabel>
 
                 <TextField
-                    type = {Type}
-                    placeholder = {Placeholder}
+                    type = {type}
+                    placeholder = {placeholder}
                     style = {{
-                        width : Width
+                        width : width
                     }}
                     InputProps = {{
                         startAdornment: (
                             <InputAdornment position='start'
                             style={{
-                                color : Error ? theme.vars.palette.error.main : theme.vars.palette.primary.main
+                                color : errortext !== undefined ? theme.vars.palette.error.main : theme.vars.palette.primary.main
                             }}>
-                                <StyledIcon component={Icon} />
+                                <StyledIcon component={icon} />
                             </InputAdornment>
                         ),
-                        style: { color: Error ? theme.vars.palette.error.main : theme.vars.palette.tertiary.main },
+                        style: { color: errortext !== undefined ? theme.vars.palette.error.main : theme.vars.palette.tertiary.main },
                     }}
-                    defaultValue = {DefValue}
+                    defaultValue = {defvalue}
                     variant = "filled"
                     className = "textfield"
-                    disabled = {Disabled}
-                    error = {Error}
-                    helperText = {ErrorText}
-                    {...(Error ? {focused : true} : {})}
+                    name={label}
+                    disabled = {disabled}
+                    onChange={onchange}
+                    error = {errortext !== undefined}
+                    helperText = {errortext}
+                    {...(errortext !== undefined ? {focused : true} : {})}
                 />
             </Grid>
         </Box>

@@ -28,7 +28,8 @@ export const ButtonWidget = ({
             }}
             variant={isShowOutLine ? 'outlined' : 'contained'}
             disabled={disabled}
-            onClick={callback}
+            // onClick={callback}
+            type='submit'
         >
             {text}
         </Button>

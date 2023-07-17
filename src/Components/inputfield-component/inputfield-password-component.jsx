@@ -18,22 +18,26 @@ const StyledIconContainer = styled('div')(({ theme }) => ({
     backgroundColor: 'white',
     lineHeight: 0
   }));
-  
+
   const StyledIcon = ({ component: Component }) => {  
     return (
       <StyledIconContainer>
         <Component style={{
-            color: theme.vars.palette.primary.main, 
+            // color: theme.vars.palette.primary.main, 
             height: '3vh',
             width: '3vh'
         }} />
       </StyledIconContainer>
     );
-  };
+};
+  
+
 
 export const PasswordField = ({
-    Placeholder,
-    Width = '150px',
+    errortext,
+    onchange,
+    placeholder,
+    width = '150px',
     alignment = WidgetAlign.center
 }) => {
     const [showPassword, setShowPassword] = useState(false);
@@ -46,15 +50,15 @@ export const PasswordField = ({
 
     return(
         <Grid container justifyContent={alignment} style={{paddingTop:'24px', paddingBottom:'24px'}}>
-            <InputLabel htmlFor="input-with-icon-adornment" className='inputlabel'>
+            <InputLabel for="password" className='inputlabel'>
                 Password
             </InputLabel>
 
             <TextField
-                type={showPassword ? 'text' : 'password'}
-                placeholder={Placeholder}
+                type= {showPassword ? 'text' : 'password'}
+                placeholder={placeholder}
                 style={{
-                    width: Width
+                    width: width
                 }}
                 InputProps={{
                     endAdornment: (
@@ -74,12 +78,20 @@ export const PasswordField = ({
                     ),
 
                     startAdornment: (
-                        <InputAdornment position='start'>
-                            <StyledIcon  component={LockIcon} />
+                        <InputAdornment position='start'
+                        style={{
+                            color : errortext !== undefined ? theme.vars.palette.error.main : theme.vars.palette.primary.main
+                        }}>
+                            <StyledIcon component={LockIcon} />
                         </InputAdornment>
                     )
                 }}
                 variant="filled"
+                name='password'
+                onChange={onchange}
+                error = {errortext !== undefined}
+                helperText = {errortext}
+                {...(errortext !== undefined ? {focused : true} : {})}
             />
         </Grid>
     )

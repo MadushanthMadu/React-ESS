@@ -8,16 +8,33 @@ import { Experimental_CssVarsProvider as CssVarsProvider } from '@mui/material/s
 import { Typography } from '@mui/material';
 
 import EmailIcon from '@mui/icons-material/Email';
+import { useState } from 'react';
+import Validation from './validation';
 
 const forgetpassword = () => {
     console.log('Forget Password')
 };
 
-const Submit = () => {
-    console.log('Login Submitted')
-};
+// const Submit = () => {
+//     console.log('Login Submitted')
+// };
 
-export const LoginForm = () => (
+export const LoginForm = () => {
+    const [values, setValues] = useState ({})
+
+    const [errors, setErrors] = useState({})
+
+    function handleinput(event) {
+        const newObj = {...values, [event.target.name.toLowerCase()]: event.target.value}
+        setValues(newObj);
+    }
+
+    function handleValidation(event) {
+        event.preventDefault();
+        setErrors(Validation(values));
+    }
+
+    return(
     <CssVarsProvider theme={theme}>
         {/* Heading */}
         <Heading 
@@ -26,21 +43,27 @@ export const LoginForm = () => (
             description='Start managing your finance faster and better'
         />
 
+        <form onSubmit={handleValidation}>
+
         {/* Email */}
         <InputField 
-            Label = 'Email'
-            Type = 'email'
-            Placeholder = 'you@example.com'
-            Icon = { EmailIcon }
-            Width = '100%'
+            label = 'Email'
+            type = 'text'
+            placeholder = 'you@example.com'
+            icon = { EmailIcon }
+            width = '100%'
             alignment = { WidgetAlign.left }
+            onchange = { handleinput }
+            errortext = { errors.email }
         />
 
         {/* Password */}
         <PasswordField 
-            Placeholder = 'At least 8 characters'
-            Width = '100%'
+            placeholder = 'At least 8 characters'
+            width = '100%'
             alignment = { WidgetAlign.left }
+            onchange = { handleinput }
+            errortext = { errors.password }
         />
 
         {/* Forget Password */}
@@ -59,10 +82,12 @@ export const LoginForm = () => (
 
         {/* Submit Button */}
         <ButtonWidget 
-            callback = { Submit }
+            // callback = {Submit}
             Width = '100%'
             text = 'Login'
         />
+
+        </form>
 
         {/* Version */}
         <Typography
@@ -76,4 +101,5 @@ export const LoginForm = () => (
             Live v1.0.0
         </Typography>
     </CssVarsProvider>
-)
+    )
+}
