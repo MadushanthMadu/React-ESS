@@ -50,7 +50,7 @@ export const InputField = ({
                 '& > :not(style)' : { m: 1 },
             }}
         >
-            <Grid container justifyContent={alignment}>
+            <Grid container justifyContent={alignment} style={{paddingBottom:'24px'}}>
                 <InputLabel for={validationkey} className='inputlabel'>
                     {label}
                 </InputLabel>

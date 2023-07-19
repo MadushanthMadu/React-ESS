@@ -50,7 +50,7 @@ export const PasswordField = ({
     };
 
     return(
-        <Grid container justifyContent={alignment} style={{paddingTop:'24px', paddingBottom:'24px'}}>
+        <Grid container justifyContent={alignment} style={{paddingBottom:'24px'}}>
             <InputLabel for={validationkey} className='inputlabel'>
                 Password
             </InputLabel>

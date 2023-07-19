@@ -1,20 +1,18 @@
 import { WidgetAlign } from '../../enums/enums';
 import theme from '../../themes/theme';
 import { Heading } from '../../components/heading-component/heading.component';
-import { PasswordField } from '../../components/inputfield-component/inputfield.password.component';
 import { InputField } from '../../components/inputfield-component/inputfield.common.component';
 import { ButtonWidget } from '../../components/button-component/button.component';
 import { Experimental_CssVarsProvider as CssVarsProvider } from '@mui/material/styles';
-import { Typography } from '@mui/material';
 import EmailIcon from '@mui/icons-material/Email';
 import { useState } from 'react';
 import Validation from '../../shared/validation';
 import { Link } from 'react-router-dom';
+import ArrowBackIosNewIcon from '@mui/icons-material/ArrowBackIosNew';
 
-export const LoginForm = () => {
+export const ForgetPassword = () => {
     const [values, setValues] = useState ({
-        email:'',
-        required:''
+        email:''
     })
 
     const [errors, setErrors] = useState({})
@@ -31,11 +29,19 @@ export const LoginForm = () => {
 
     return(
     <CssVarsProvider theme={theme}>
+        {/* Back */}
+        <Link to="/login">
+            <button className='backbtn'>
+                <ArrowBackIosNewIcon style={{fontSize:'11px', fontWeight:'400', marginRight:'3px'}}/>
+                Back
+            </button>
+        </Link>
+
         {/* Heading */}
         <Heading 
             type='h2'
-            title='Welcome Back!'
-            description='Start managing your finance faster and better'
+            title='Reset your password'
+            description="Enter your user account's verified email address and we will send you a password reset"
         />
 
         <form onSubmit={handleValidation}>
@@ -53,49 +59,13 @@ export const LoginForm = () => {
             errortext = { errors.email }
         />
 
-        {/* Password */}
-        <PasswordField 
-            placeholder = 'Your password here'
-            width = '100%'
-            alignment = { WidgetAlign.left }
-            onchange = { handleinput }
-            errortext = { errors.required }
-        />
-
-        {/* Forget Password */}
-        <Link to="/forget_password" style={{textDecoration: 'none'}}>
-            <Typography
-                variant = 'p'
-                color = {theme.vars.palette.primary.main}
-                style = {{
-                    cursor : 'pointer' ,
-                    display : 'grid' ,
-                    justifyContent : 'end'
-                }}
-            >
-                Forget password?
-            </Typography>
-        </Link>
-
         {/* Submit Button */}
         <ButtonWidget 
             Width = '100%'
-            text = 'Login'
+            text = 'Reset password'
         />
 
         </form>
-
-        {/* Version */}
-        <Typography
-            variant = 'p'
-            color = {theme.vars.palette.tertiary.main}
-            style = {{
-                display : 'grid' ,
-                justifyContent : 'center'
-            }}
-        >
-            Live v1.0.0
-        </Typography>
     </CssVarsProvider>
     )
 }

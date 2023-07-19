@@ -3,6 +3,8 @@ import Box from '@mui/material/Box';
 import Grid from '@mui/material/Unstable_Grid2';
 import Logo from '../../assets/images/Techserw-Logo.png'
 
+import { BrowserRouter as Router,Routes, Route } from 'react-router-dom';
+import { ForgetPassword } from './forgetpassword.form';
 import { LoginForm } from './login.form';
 
 class Login extends Component {
@@ -54,7 +56,12 @@ class Login extends Component {
                         style = {{ 
                             width:'65%'
                         }}>
-                            <LoginForm />
+                            <Router>
+                                <Routes>
+                                    <Route exact path='/login' element={< LoginForm />}></Route>
+                                    <Route exact path='/forget_password' element={< ForgetPassword />}></Route>
+                                </Routes>
+                            </Router>
                         </div>
                     </Grid>
                 </Grid>
