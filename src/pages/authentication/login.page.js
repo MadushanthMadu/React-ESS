@@ -29,8 +29,8 @@ class Login extends Component {
                         <img
                             style = {{
                                 width: '40%',
-                                marginLeft: 'auto',
-                                marginRight: 'auto',
+                                marginLeft: '60%',
+                                marginRight: '40%',
                                 display: 'flex'
                             }} 
                             src={Logo} 

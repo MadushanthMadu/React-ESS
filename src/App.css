@@ -1,3 +1,7 @@
+body {
+    font-family: "Roboto","Helvetica","Arial",sans-serif !important;
+}
+
 .css-1jxdcj3-MuiSvgIcon-root {
     width: 3vh !important;
     height: 3vh !important;
@@ -70,4 +74,23 @@
     font-weight: 400;
     line-height: 20px;
     color: #2aa7df;
+}
+
+.rs-sidenav {
+    height: 100vh;
+}
+
+.rs-sidenav-item-active,
+.rs-dropdown-item-active {
+    background-color: #2aa7df !important;
+    color: white !important;
+    font-weight: 500 !important;
+}
+
+.rs-dropdown-selected-within a svg {
+    color: #2aa7df !important;
+}
+
+.rs-sidenav-toggle-button {
+    width: 100% !important;
 }
